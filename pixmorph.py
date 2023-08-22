@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
-#!/usr/bin/env python
 # PEP-8
-# Copyright (C) 2023 Maksim Panfilov <mxpanf@proton.me>
-# Licensed under MIT License <see LICENSE file>
-
 import random
-from typing import Union, Literal
+from typing import Literal
 from PIL import Image, ImageFilter, ImageDraw
 
 
