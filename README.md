@@ -55,7 +55,26 @@ For detailed help on using the command line interface:
 python3 pixmorph_cli.py --help
 ```
 
+### Python Module
+
+```python
+from pixmorph import ImageProcessor
+
+# Initialize the processor with an image path
+picture = ImageProcessor("path_to_your_image.jpg")
+
+# Applying the dots effect with custom parameters
+dots_image = ImageProcessor.Newsprint.dots_effect(picture, cell_size=10)
+dots_image.show()
+
+# Applying the shift effect with custom parameters
+shifted_image = ImageProcessor.Shift.basic(picture, shift_power=10, direction="vertical")
+shifted_image.show()
+```
+
 ## Flags and Parameters
+
+### Parameters fot CLI
 
 | Flag            | Description                        | Allowed Values             | Default Value | Applicable Effects |
 | --------------- | ---------------------------------- | -------------------------- | ------------- | ------------------ |
@@ -65,6 +84,17 @@ python3 pixmorph_cli.py --help
 | `--direction`   | Direction of the shift effect      | `horizontal`, `vertical`   | horizontal    | shift              |
 | `--shift_power` | Maximum shift in pixels            | Any integer                | 20            | shift              |
 | `--band_height` | Height of each band for shift      | Any integer                | 1             | shift              |
+
+### Parameters for Python Module Usage
+
+| Method                   | Parameter        | Description                                               | Default       | Example Values                           |
+|--------------------------|------------------|-----------------------------------------------------------|---------------|------------------------------------------|
+| `Newsprint.dots_effect`  | `cell_size`      | Size of the cell for the halftone effect                  | `6`           | `4`, `10`, `15`                          |
+| `Newsprint.stripes_effect` | `cell_size`    | Size of the cell for the stripes effect                   | `6`           | `5`, `12`, `18`                          |
+|                          | `angle`          | Angle in degrees for the stripes orientation              | `0` (vertical)| `45`, `90`                               |
+| `Shift.basic`            | `shift_power`    | Maximum shift in pixels                                   | `20`          | `5`, `15`, `30`                          |
+|                          | `direction`      | Direction of the shift                                    | "horizontal"  | "horizontal", "vertical"                 |
+|                          | `band_height`    | Height of each band                                       | `1`           | `2`, `5`, `10`                           |
 
 
 ## Examples
